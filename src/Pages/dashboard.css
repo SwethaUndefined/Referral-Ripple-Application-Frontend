@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+.dashboard-section{
+    background-color: #f8f9fd;
+    min-height: 100vh;
+}
+.name{
+    font-size: 20px;
+    font-weight: 400;
+    color: white;
+}
+
+.dashboard-section .header {
+    background-color: #3C79A5;
+    padding: 15px 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+.dashboard-section .UserOutlined{
+    background-color: transparent;
+    border: 1px solid white;
+}
+.userInfo{
+    margin: 30px 10px 10px 10px ;
+}
+.points{
+    display: flex;
+    justify-content: flex-end;
+}
+.points-text{
+    color: #325ca8;
+    font-size: 20px;
+}
+.heading{
+    text-align: center;
+    margin: 10px 0px 10px 0px;
+}
+.text{
+    font-size: 20px;
+    color: #3265a8;
+}
+.data{
+    text-align: center;
+}
+.empty{
+    font-size: 20px;
+}
