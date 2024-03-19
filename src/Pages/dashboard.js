@@ -32,6 +32,7 @@ const Dashboard = () => {
   
   const handleLogout = () => {
     sessionStorage.setItem("isLoggedIn", "false");
+    sessionStorage.removeItem("username");
     window.location.href = "/"
   };
 
