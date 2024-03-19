@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, Typography, Space, Avatar, Card } from "antd";
+import { Row, Col, Typography, Space, Avatar, Card,Button,Modal } from "antd";
 import { useLocation } from "react-router-dom";
 import "./dashboard.css";
 import { UserOutlined } from "@ant-design/icons";
@@ -12,6 +12,7 @@ const Dashboard = () => {
   const [userData, setUserData] = useState({});
   const [referralData, setReferralData] = useState({});
   const [referrlUserLsit, setReferrlUserLsit] = useState([]);
+  const [logoutModalVisible, setLogoutModalVisible] = useState(false);
 
   const getInfo = () => {
     getuserInfo(username)
@@ -29,6 +30,20 @@ const Dashboard = () => {
     getInfo();
   }, [getInfo]);
   
+  const handleLogout = () => {
+    sessionStorage.setItem("isLoggedIn", "false");
+    window.location.href = "/"
+  };
+
+  const handleLogoutConfirmation = () => {
+    setLogoutModalVisible(true);
+  };
+
+  const handleCancelLogout = () => {
+    setLogoutModalVisible(false);
+  };
+  
+
   return (
     <section className="dashboard-section">
       <Row>
@@ -40,6 +55,7 @@ const Dashboard = () => {
               className="UserOutlined"
             />
             <Typography className="name">{username}!</Typography>
+            <Button onClick={handleLogoutConfirmation}>Logout</Button>
           </Space>
         </Col>
         <Col span={1}></Col>
@@ -86,6 +102,14 @@ const Dashboard = () => {
           )}
         </Col>
       </Row>
+      <Modal
+        title="Logout Confirmation"
+        visible={logoutModalVisible}
+        onOk={handleLogout}
+        onCancel={handleCancelLogout}
+      >
+        <p>Are you sure you want to logout?</p>
+      </Modal>
     </section>
   );
 };
